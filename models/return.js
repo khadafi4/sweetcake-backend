@@ -5,4 +5,4 @@ const ReturnSchema = new mongoose.Schema({
   reason: String,
   dateRequested: { type: Date, default: Date.now }
 });
-module.exports = mongoose.model('Return', ReturnSchema);
+module.exports = mongoose.model('Return', returnSchema, 'returns');
