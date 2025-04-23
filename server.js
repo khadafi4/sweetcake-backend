@@ -20,6 +20,7 @@ const Product = require('./models/Product');
 const Shopper = require('./models/Shopper');
 const Billing = require('./models/Billing');
 const Return = require('./models/Return');
+const Shipping = require('./models/Shipping');
 
 // --- Product Routes ---
 app.get('/api/products', async (req, res) => {
@@ -69,4 +70,20 @@ app.post('/api/returns', async (req, res) => {
   catch { res.status(500).send("Error submitting return."); }
 });
 
+// --- Shipping Routes ---
+app.get('/api/shippings', async (req, res) => {
+  try {
+    res.json(await Shipping.find());
+  } catch {
+    res.status(500).send("Error retrieving shipping details.");
+  }
+});
+
+app.post('/api/shippings', async (req, res) => {
+  try { res.json(await Shipping.create(req.body));
+  } 
+  catch { res.status(500).send("Error adding shipping details.");
+  }
+  
+});
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
