@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const ReturnSchema = new mongoose.Schema({
+const returnSchema = new mongoose.Schema({
   shopperEmail: String,
   product: String,
   reason: String,
