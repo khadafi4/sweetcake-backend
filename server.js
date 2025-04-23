@@ -42,48 +42,78 @@ app.delete('/api/products/:id', async (req, res) => {
 
 // --- Shopper Routes ---
 app.get('/api/shoppers', async (req, res) => {
-  try { res.json(await Shopper.find()); }
-  catch { res.status(500).send("Error retrieving shoppers."); }
+    try {
+        const items = await Shopper.find();
+        res.json(items);
+    } catch (err) {
+        res.status(500).send("Error retrieving shoppers.");
+    }
 });
 app.post('/api/shoppers', async (req, res) => {
-  try { res.json(await Shopper.create(req.body)); }
-  catch { res.status(500).send("Error adding shopper."); }
+    try {
+        const item = new Shopper(req.body);
+        await item.save();
+        res.json(item);
+    } catch (err) {
+        res.status(500).send("Error adding shopper.");
+    }
 });
 
 // --- Billing Routes ---
 app.get('/api/billings', async (req, res) => {
-  try { res.json(await Billing.find()); }
-  catch { res.status(500).send("Error retrieving billings."); }
+    try {
+        const items = await Billing.find();
+        res.json(items);
+    } catch (err) {
+        res.status(500).send("Error retrieving billings.");
+    }
 });
 app.post('/api/billings', async (req, res) => {
-  try { res.json(await Billing.create(req.body)); }
-  catch { res.status(500).send("Error submitting billing."); }
+    try {
+        const item = new Billing(req.body);
+        await item.save();
+        res.json(item);
+    } catch (err) {
+        res.status(500).send("Error adding billing.");
+    }
 });
 
 // --- Return Routes ---
 app.get('/api/returns', async (req, res) => {
-  try { res.json(await Return.find()); }
-  catch { res.status(500).send("Error retrieving returns."); }
+    try {
+        const items = await Return.find();
+        res.json(items);
+    } catch (err) {
+        res.status(500).send("Error retrieving returns.");
+    }
 });
 app.post('/api/returns', async (req, res) => {
-  try { res.json(await Return.create(req.body)); }
-  catch { res.status(500).send("Error submitting return."); }
+    try {
+        const item = new Return(req.body);
+        await item.save();
+        res.json(item);
+    } catch (err) {
+        res.status(500).send("Error adding return.");
+    }
 });
 
 // --- Shipping Routes ---
 app.get('/api/shippings', async (req, res) => {
-  try {
-    res.json(await Shipping.find());
-  } catch {
-    res.status(500).send("Error retrieving shipping details.");
-  }
+    try {
+        const items = await Shipping.find();
+        res.json(items);
+    } catch (err) {
+        res.status(500).send("Error retrieving shippings.");
+    }
+});
+app.post('/api/shippings', async (req, res) => {
+    try {
+        const item = new Shipping(req.body);
+        await item.save();
+        res.json(item);
+    } catch (err) {
+        res.status(500).send("Error adding shipping.");
+    }
 });
 
-app.post('/api/shippings', async (req, res) => {
-  try { res.json(await Shipping.create(req.body));
-  } 
-  catch { res.status(500).send("Error adding shipping details.");
-  }
-  
-});
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
