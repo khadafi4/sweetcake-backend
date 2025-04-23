@@ -6,4 +6,4 @@ const BillingSchema = new mongoose.Schema({
   cardLast4: String,
   nameOnCard: String
 });
-module.exports = mongoose.model('Billing', billingSchema, 'billings');
+module.exports = mongoose.model('Billing', billingSchema, 'billing');
