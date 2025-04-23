@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const BillingSchema = new mongoose.Schema({
+const billingSchema = new mongoose.Schema({
   shopperEmail: String,
   billingAddress: String,
   zip: String,
