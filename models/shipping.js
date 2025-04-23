@@ -8,4 +8,4 @@ const ShippingSchema = new mongoose.Schema({
   cost: Number
 });
 
-module.exports = mongoose.model('Shipping', ShippingSchema);
+module.exports = mongoose.model('Shipping', shippingSchema, 'shippings');
