@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const ShippingSchema = new mongoose.Schema({
-  shopperEmail: String,
-  destination: String,
-  carrier: String,
-  method: String,
-  cost: Number
+const shopperSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  email: String,
+  phone: String,
+  address: String
 });
 
-module.exports = mongoose.model('Shipping', ShippingSchema);
+module.exports = mongoose.model('Shopper', shopperSchema, 'shoppers');
