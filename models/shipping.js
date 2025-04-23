@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ShippingSchema = new mongoose.Schema({
+const shippingSchema = new mongoose.Schema({
   shopperEmail: String,
   destination: String,
   carrier: String,
@@ -8,4 +8,4 @@ const ShippingSchema = new mongoose.Schema({
   cost: Number
 });
 
-module.exports = mongoose.model('Shipping', shippingSchema, 'shipping');
+module.exports = mongoose.model('Shipping', shippingSchema, 'shippings');
