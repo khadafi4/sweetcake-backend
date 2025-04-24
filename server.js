@@ -49,6 +49,8 @@ app.get('/api/shoppers', async (req, res) => {
         res.status(500).send("Error retrieving shoppers.");
     }
 });
+
+// POST a new shopper
 app.post('/api/shoppers', async (req, res) => {
     try {
         const item = new Shopper(req.body);
